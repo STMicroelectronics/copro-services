@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.st.copro"
+      android:versionCode="1"
+      android:versionName="1.0">
+
+    <application android:label="Copro Service"
+                 android:directBootAware="true"
+                 android:persistent="true">
+        <service android:name=".CoproService"
+                 android:enabled="true"
+                 android:exported="true">
+            <intent-filter>
+                <action android:name="com.st.copro.ACTION_BIND_COPRO_SERVICE" />
+            </intent-filter>
+        </service>
+    </application>
+</manifest>

@@ -1,0 +1,85 @@
+// Signature format: 2.0
+package com.st.copro {
+
+  public class CoproSerialPort {
+    ctor public CoproSerialPort(@NonNull com.st.copro.ICoproSerialPort);
+    method public void close();
+    method public void open(int);
+    method @Nullable public String read();
+    method @Nullable public byte[] readB(int);
+    method public void write(@NonNull String);
+    method public int writeB(@NonNull byte[]);
+  }
+
+  public class CoproService extends android.app.Service {
+    ctor public CoproService();
+    method public android.os.IBinder onBind(android.content.Intent);
+  }
+
+  public final class FirmwareInfo implements android.os.Parcelable {
+    method public int describeContents();
+    method public int getId();
+    method @NonNull public String getName();
+    method public boolean getState();
+    method public void writeToParcel(@NonNull android.os.Parcel, int);
+    field @NonNull public static final android.os.Parcelable.Creator<com.st.copro.FirmwareInfo> CREATOR;
+  }
+
+  public interface ICoproSerialPort extends android.os.IInterface {
+    method public void close() throws android.os.RemoteException;
+    method public boolean open(int) throws android.os.RemoteException;
+    method public String read() throws android.os.RemoteException;
+    method public byte[] readB(int) throws android.os.RemoteException;
+    method public void write(String) throws android.os.RemoteException;
+    method public int writeB(byte[]) throws android.os.RemoteException;
+    field public static final String DESCRIPTOR = "com.st.copro.ICoproSerialPort";
+  }
+
+  public static class ICoproSerialPort.Default implements com.st.copro.ICoproSerialPort {
+    ctor public ICoproSerialPort.Default();
+    method public android.os.IBinder asBinder();
+    method public void close() throws android.os.RemoteException;
+    method public boolean open(int) throws android.os.RemoteException;
+    method public String read() throws android.os.RemoteException;
+    method public byte[] readB(int) throws android.os.RemoteException;
+    method public void write(String) throws android.os.RemoteException;
+    method public int writeB(byte[]) throws android.os.RemoteException;
+  }
+
+  public abstract static class ICoproSerialPort.Stub extends android.os.Binder implements com.st.copro.ICoproSerialPort {
+    ctor public ICoproSerialPort.Stub();
+    method public android.os.IBinder asBinder();
+    method public static com.st.copro.ICoproSerialPort asInterface(android.os.IBinder);
+    method public boolean onTransact(int, android.os.Parcel, android.os.Parcel, int) throws android.os.RemoteException;
+  }
+
+  public interface ICoproService extends android.os.IInterface {
+    method public com.st.copro.FirmwareInfo getFirmwareByName(String) throws android.os.RemoteException;
+    method public com.st.copro.FirmwareInfo[] getFirmwareList() throws android.os.RemoteException;
+    method public com.st.copro.ICoproSerialPort getSerialPort() throws android.os.RemoteException;
+    method public boolean isFirmwareRunning(int) throws android.os.RemoteException;
+    method public void startFirmware(int) throws android.os.RemoteException;
+    method public void stopFirmware() throws android.os.RemoteException;
+    field public static final String DESCRIPTOR = "com.st.copro.ICoproService";
+  }
+
+  public static class ICoproService.Default implements com.st.copro.ICoproService {
+    ctor public ICoproService.Default();
+    method public android.os.IBinder asBinder();
+    method public com.st.copro.FirmwareInfo getFirmwareByName(String) throws android.os.RemoteException;
+    method public com.st.copro.FirmwareInfo[] getFirmwareList() throws android.os.RemoteException;
+    method public com.st.copro.ICoproSerialPort getSerialPort() throws android.os.RemoteException;
+    method public boolean isFirmwareRunning(int) throws android.os.RemoteException;
+    method public void startFirmware(int) throws android.os.RemoteException;
+    method public void stopFirmware() throws android.os.RemoteException;
+  }
+
+  public abstract static class ICoproService.Stub extends android.os.Binder implements com.st.copro.ICoproService {
+    ctor public ICoproService.Stub();
+    method public android.os.IBinder asBinder();
+    method public static com.st.copro.ICoproService asInterface(android.os.IBinder);
+    method public boolean onTransact(int, android.os.Parcel, android.os.Parcel, int) throws android.os.RemoteException;
+  }
+
+}
+

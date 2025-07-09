@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <library name="copro" file="/system_ext/framework/copro.jar"/>
+</permissions>
